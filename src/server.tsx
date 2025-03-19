@@ -23,7 +23,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/examples/blinker', (req, res) => {
-  const html = ReactDOMServer.renderToString(<WorldWindow />);
+  const generation = (req.query.generation ?? 1) as string;
+  const html = ReactDOMServer.renderToString(
+    <WorldWindow
+      generation={generation}
+    />
+  );
   
   res.send(`
     <!DOCTYPE html>
