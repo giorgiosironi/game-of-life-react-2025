@@ -23,10 +23,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/examples/blinker', (req, res) => {
-  const generation = (req.query.generation ?? 1) as string;
+  const currentGeneration = (req.query.generation ?? 1) as string;
   const html = ReactDOMServer.renderToString(
     <WorldWindow
-      generation={generation}
+      currentGeneration={currentGeneration}
     />
   );
   
