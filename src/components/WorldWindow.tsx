@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 import React from 'react';
 
 type Props = {
@@ -23,17 +24,19 @@ const WorldWindow: React.FC<Props> = ({ currentGeneration }) => {
   return (
     <div>
       <h1>Generation {currentGeneration}</h1>
-      <table>
-        {grid.map((row) => (
-          <tr>
-            {row.map((isAlive) => (
-              <td 
-                className={isAlive ? 'cell--alive' : 'cell--dead'}
-              />
-            ))}
-          </tr>
-        ))}
-      </table>
+      <div id="table-container">
+        <table>
+          {grid.map((row) => (
+            <tr>
+              {row.map((isAlive) => (
+                <td 
+                  className={isAlive ? 'cell--alive' : 'cell--dead'}
+                />
+              ))}
+            </tr>
+          ))}
+        </table>
+      </div>
       <a href={`/examples/blinker?generation=${otherGeneration}`}>
         Switch to generation {otherGeneration}
       </a>
