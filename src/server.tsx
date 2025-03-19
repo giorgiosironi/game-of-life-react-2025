@@ -21,6 +21,22 @@ app.get('/', (req, res) => {
   `);
 });
 
+app.get('/examples/blinker', (req, res) => {
+  const html = '<table></table>';
+
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Blinker</title>
+      </head>
+      <body>
+        <div id="root">${html}</div>
+      </body>
+    </html>
+  `);
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
