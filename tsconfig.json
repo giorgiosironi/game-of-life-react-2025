@@ -1,0 +1,8 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsxdev",
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"]
+} 
