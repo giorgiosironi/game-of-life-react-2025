@@ -1,6 +1,7 @@
 import express from 'express';
 import ReactDOMServer from 'react-dom/server';
 import HelloWorld from './HelloWorld';
+import WorldWindow from './components/WorldWindow';
 
 const app = express();
 const port = 3000;
@@ -22,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/examples/blinker', (req, res) => {
-  const html = '<table></table>';
+  const html = ReactDOMServer.renderToString(<WorldWindow />);
 
   res.send(`
     <!DOCTYPE html>
