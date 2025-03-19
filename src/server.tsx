@@ -24,12 +24,28 @@ app.get('/', (req, res) => {
 
 app.get('/examples/blinker', (req, res) => {
   const html = ReactDOMServer.renderToString(<WorldWindow />);
-
+  
   res.send(`
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Blinker</title>
+        <title>World Window Example</title>
+        <style>
+          table {
+            border-collapse: collapse;
+          }
+          
+          td {
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+          }
+          
+          .cell--alive {
+            background-color: black;
+          }
+        </style>
       </head>
       <body>
         <div id="root">${html}</div>
