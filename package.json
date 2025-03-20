@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "@react-router/node": "^7.4.0",
     "@react-router/serve": "^7.4.0",
