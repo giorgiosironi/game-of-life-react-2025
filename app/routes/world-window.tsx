@@ -31,10 +31,11 @@ export default function WorldWindow({ loaderData }: Route.ComponentProps) {
     <div>
       <h1>Generation {currentGeneration}</h1>
       <table>
-        {grid.map((row) => (
-          <tr>
-            {row.map((isAlive) => (
+        {grid.map((row, rowIndex) => (
+          <tr key={rowIndex}>
+            {row.map((isAlive, columnIndex) => (
               <td 
+                key={columnIndex}
                 className={isAlive ? 'cell--alive' : 'cell--dead'}
               />
             ))}
