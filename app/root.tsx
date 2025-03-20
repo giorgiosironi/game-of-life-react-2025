@@ -18,22 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <style>{`
-          table {
-            border-collapse: collapse;
-          }
-          
-          td {
-            background-color: white;
-            width: 30px;
-            height: 30px;
-            border: 1px solid black;
-          }
-          
-          .cell--alive {
-            background-color: black;
-          }
-        `}</style>
+        <link rel="stylesheet" href="/style.css" />
       </head>
       <body>
         {children}
