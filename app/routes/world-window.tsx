@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 import type { Route } from "./+types/world-window";
 
-const createRow = () => ({ cells: Array(8).fill(false) });
+const createRow = (y: number) => ({ cells: Array(8).fill(false), y });
 
-const emptyGrid = () => Array(6).fill(null).map(createRow);
+const emptyGrid = () => Array(6).fill(null).map((_, index) => createRow(index));
 
 export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
@@ -36,8 +36,8 @@ export default function WorldWindow({ loaderData }: Route.ComponentProps) {
     <div>
       <h1>Generation {currentGeneration}</h1>
       <table>
-        {loaderData.grid.map((row, rowIndex) => (
-          <tr key={rowIndex}>
+        {loaderData.grid.map((row) => (
+          <tr key={row.y}>
             {row.cells.map((isAlive, columnIndex) => (
               <td 
                 key={columnIndex}
