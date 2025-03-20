@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Route } from "./+types/world-window";
 
 export function loader({ request }: { request: Request }) {
@@ -40,9 +41,9 @@ export default function WorldWindow({ loaderData }: Route.ComponentProps) {
           </tr>
         ))}
       </table>
-      <a href={`/examples/blinker?generation=${otherGeneration}`}>
+      <Link to={`/examples/blinker?generation=${otherGeneration}`}>
         Switch to generation {otherGeneration}
-      </a>
+      </Link>
     </div>
   );
 };
