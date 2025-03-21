@@ -1,5 +1,6 @@
+/// <reference types="vitest" />
+import { defineConfig } from 'vite';
 import { reactRouter } from "@react-router/dev/vite";
-import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
@@ -8,5 +9,10 @@ export default defineConfig({
       plugins: [],
     },
   },
-  plugins: [reactRouter(), tsconfigPaths()],
+  plugins: [!process.env.VITEST && reactRouter(), tsconfigPaths()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./test/setup.ts'],
+  },
 });
